@@ -14,6 +14,8 @@ from pathlib import Path
 import environ
 import os
 
+import rest_framework.pagination
+
 env = environ.Env()
 
 environ.Env.read_env()
@@ -114,6 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 
 # Internationalization

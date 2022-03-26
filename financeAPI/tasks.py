@@ -20,7 +20,7 @@ def collect_articles(self):
                 'symbol': 'TWTR'
             },
             {
-                'symbol': 'GC=F(GOLD)'
+                'symbol': 'GC=F'
             }
         ]
         for i in default_symbols:
