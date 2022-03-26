@@ -34,12 +34,10 @@ def collect_articles(self):
 
     for j in symbols:
         get_articles = requests.get(url + j.symbol + other_params, headers={'User-agent': 'Mozilla/5.0'})
-        soup = BeautifulSoup(get_articles.content, 'lxml')
+        soup = BeautifulSoup(get_articles.content, 'xml')
         articles = soup.findAll('item')
         articles_list = []
         symbol_id = j.id
-
-        print(symbol_id)
 
         for i in articles:
             article = {
@@ -47,7 +45,7 @@ def collect_articles(self):
                 'description': i.find('description').text,
                 'external_id': i.find('guid').text,
                 'article_link': i.find('link').text,
-                'publish_date': i.find('pubdate').text,
+                'publish_date': i.find('pubDate').text,
                 'symbol': symbol_id
 
             }
@@ -58,7 +56,6 @@ def collect_articles(self):
 
             existing_article = Article.objects.get_or_none(external_id=i.get('external_id'))
 
-            print(existing_article)
             if existing_article is None:
                 serializer = ArticleSerializer(data=i)
                 serializer.is_valid(raise_exception=True)
