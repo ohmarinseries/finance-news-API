@@ -1,0 +1,51 @@
+version: "3"
+services:
+  db:
+    image: postgres:13.4-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: finance-news
+      POSTGRES_PASSWORD: 2503
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5433:5432"
+  api:
+    restart: always
+    env_file:
+      - ./djangoProject/.env
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  redis:
+    image: redis:alpine
+  celery:
+    restart: always
+    build:
+      context: .
+    command: celery -A djangoProject worker -l info
+    volumes:
+      - ./api:/api
+    env_file:
+      - ./djangoProject/.env
+    depends_on:
+      - db
+      - redis
+      - api
+  celery-beat:
+    restart: always
+    build:
+      context: .
+    command: celery -A djangoProject beat -l INFO
+    volumes:
+      - ./api:/api
+    env_file:
+      - ./djangoProject/.env
+    depends_on:
+      - db
+      - redis
+      - api
+      - celery

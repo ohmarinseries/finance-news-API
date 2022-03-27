@@ -1,0 +1,9 @@
+beautifulsoup4==4.10.0
+django_environ==0.8.1
+djangorestframework==3.13.1
+redis==4.2.0
+environ==1.0
+requests==2.27.1
+celery==5.2.3
+django-celery-beat==2.2.1
+django-celery-results==2.3.0
