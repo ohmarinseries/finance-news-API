@@ -20,7 +20,7 @@ To start application you need to run following command:
 Note: You need to have docker desktop on your machine to run
 
 ```shell
-$ docker-compose up -build
+$ docker-compose up --build
 ```
 
 # Walkthrough
@@ -30,6 +30,10 @@ can add additional symbols you need to send request:
 
 ```http request
 POST https://localhost:8080/news/symbols/
+BODY:
+{
+'symbol': 'example-symbol'
+}
 ```
 
 To see symbols that data is being collected for send:
@@ -53,5 +57,5 @@ GET https://localhost:8080/news/articles/?page_size=5&page=3
 #Run Tests
 To run tests for application run the following command:
 ```shell
-python3 manage.py test financialAPI
+python3 manage.py test financeAPI
 ```
