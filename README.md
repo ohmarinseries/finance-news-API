@@ -30,7 +30,7 @@ Scrapping Service is collecting data for AAPL, TWTR, INTC, GC=F (by default), bu
 can add additional symbols by sending request:
 
 ```http request
-POST https://localhost:8080/news/symbols/
+POST http://localhost:8080/news/symbols/
 BODY:
 {
 'symbol': 'example-symbol'
@@ -42,19 +42,19 @@ Celery is fetching data every minute from Yahoo RSS Feed
 To see symbols that data is being collected for send request to:
 
 ```http request
-GET https://localhost:8080/news/symbols/
+GET http://localhost:8080/news/symbols/
 ```
 
 To see all scrapped articles send request to:
 
 ```http request
-GET https://localhost:8080/news/articles/
+GET http://localhost:8080/news/articles/
 ```
 
 Use query parameters page_size and page to navigate through pagination, example:
 
 ```http request
-GET https://localhost:8080/news/articles/?page_size=5&page=3
+GET http://localhost:8080/news/articles/?page_size=5&page=3
 ```
 
 #To open full documentation:
