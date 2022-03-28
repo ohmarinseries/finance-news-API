@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="97990325-dd2c-481c-a396-30feb9c211f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/.env" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeAPI/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeAPI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeAPI/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeAPI/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeAPI/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeAPI/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeAPI/tests/test_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +118,7 @@
       <updated>1648389087989</updated>
       <workItem from="1648389089855" duration="229000" />
       <workItem from="1648389654612" duration="140000" />
-      <workItem from="1648389802352" duration="21685000" />
+      <workItem from="1648389802352" duration="25874000" />
     </task>
     <servers />
   </component>

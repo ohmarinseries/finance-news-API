@@ -33,7 +33,7 @@ class TestViews(TestCase):
         self.assertEquals(symbol1.symbol, 'TEST')
         self.assertEquals(response.status_code, 201)
 
-    def test_symbol_details_PUT(self):
+    def test_symbol_details_PATCH(self):
         symbol1 = Symbols.objects.create(
             symbol="TEST"
         )
@@ -62,6 +62,48 @@ class TestViews(TestCase):
         response = self.client.get(reverse('article-list'))
 
         self.assertEquals(response.status_code, 200)
+
+    def test_article_pagination_GET(self):
+        symbol1 = Symbols.objects.create(
+            symbol="TEST"
+        )
+        for i in range(10):
+            Article.objects.create(
+                 title='2022 Oscars preview: The awards show is back but it wont be a traditional Oscars',
+                 description='Heres what to expect at this years Academy Awards.',
+                 article_link='https://finance.yahoo.com/news/2022-oscars-preview-award-show-still-in-a-very-unusual-marketplace-135220904.html?.tsrc=rss',
+                 publish_date='Sat, 26 Mar 2022 13:56:03 +0000',
+                 external_id='8970a92a-11d6-4244-9132-c0206ba248f5',
+                 created_at='2022-03-26 18:13:10.584117 +00:00',
+                 updated_at='2022-03-26 18:16:03.479667 +00:00',
+                 symbol_id=symbol1.id
+              )
+        for i in range(10):
+            Article.objects.create(
+                 title='2021 Oscars',
+                 description='Heres what to expect at this years Academy Awards.',
+                 article_link='https://finance.yahoo.com/news/2022-oscars-preview-award-show-still-in-a-very-unusual-marketplace-135220904.html?.tsrc=rss',
+                 publish_date='Sat, 26 Mar 2022 13:56:03 +0000',
+                 external_id='8970a92a-11d6-4244-9132-c0206ba248f5',
+                 created_at='2022-03-26 18:13:10.584117 +00:00',
+                 updated_at='2022-03-26 18:16:03.479667 +00:00',
+                 symbol_id=symbol1.id
+              )
+
+        response = self.client.get(reverse('article-list'))
+
+        response_with_page_size_param = self.client.get(reverse('article-list'), {'page_size': 1})
+
+        response_second_page_title = self.client.get(reverse('article-list'), {'page': 2})
+        response_second_page_title = response_second_page_title.json()['results'][0]['title']
+        response_first_page_title = response.json()['results'][0]['title']
+
+        self.assertEquals(len(response.json()['results']), 10)
+        self.assertEquals(len(response_with_page_size_param.json()['results']), 1)
+        self.assertNotEquals(response_first_page_title, response_second_page_title)
+
+
+
 
 
 
