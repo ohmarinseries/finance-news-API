@@ -2,7 +2,7 @@
 
 ## Setup
 
-The first thing to do is to clone the repository:
+The first thing to do is to clone the repository(using SSH):
 
 ```shell
 $ git clone git@github.com:ohmarinseries/finance-news-API.git
@@ -13,20 +13,21 @@ Then navigate to project:
 $ cd finance-news-API
 ```
 
-# Build 
+# Build
 
 To start application you need to run following command:
 
-Note: You need to have docker desktop on your machine to run
+####Required: You need to have docker desktop on your machine to run.
 
 ```shell
 $ docker-compose up --build
 ```
+Note: Also build will take a bit of time
 
-# Walkthrough
-Finance News API is an REST API for collecting news articles from Yahoo RSS feed.
+# Use
+Finance News API is an REST API for collecting news articles from Yahoo RSS Feed.
 Scrapping Service is collecting data for AAPL, TWTR, INTC, GC=F (by default), but
-can add additional symbols you need to send request:
+can add additional symbols by sending request:
 
 ```http request
 POST https://localhost:8080/news/symbols/
@@ -36,22 +37,29 @@ BODY:
 }
 ```
 
-To see symbols that data is being collected for send:
+Celery is fetching data every minute from Yahoo RSS Feed
+
+To see symbols that data is being collected for send request to:
 
 ```http request
 GET https://localhost:8080/news/symbols/
 ```
 
-To see all saved articles sent request to:
+To see all scrapped articles send request to:
 
 ```http request
 GET https://localhost:8080/news/articles/
 ```
 
-Use query parameters page_size and page to use pagination, example:
+Use query parameters page_size and page to navigate through pagination, example:
 
 ```http request
 GET https://localhost:8080/news/articles/?page_size=5&page=3
+```
+
+#To open full documentation:
+```http request
+GET http://localhost:8080/swagger/
 ```
 
 #Run Tests

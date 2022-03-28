@@ -5,8 +5,7 @@ from .models import Article, Symbols
 from .serializer import ArticleSerializer, SymbolSerializer
 
 
-@shared_task(bind=True)
-def collect_articles(self):
+def create_default_symbols():
     symbols = Symbols.objects.all()
     if len(symbols) is 0:
         default_symbols = [
@@ -28,6 +27,10 @@ def collect_articles(self):
             serializer.is_valid(raise_exception=True)
             serializer.save()
 
+
+@shared_task(bind=True)
+def collect_articles(self):
+    create_default_symbols()
     symbols = Symbols.objects.all()
     url = 'https://feeds.finance.yahoo.com/rss/2.0/headline?s='
     other_params = '&region=US&lang=en-US'
