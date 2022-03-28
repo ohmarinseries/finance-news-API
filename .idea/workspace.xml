@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97990325-dd2c-481c-a396-30feb9c211f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/.env" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,7 @@
       <updated>1648389087989</updated>
       <workItem from="1648389089855" duration="229000" />
       <workItem from="1648389654612" duration="140000" />
-      <workItem from="1648389802352" duration="40755000" />
+      <workItem from="1648389802352" duration="41084000" />
     </task>
     <servers />
   </component>
