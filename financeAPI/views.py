@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
@@ -27,3 +27,24 @@ class SymbolViewSet(viewsets.ViewSet):
 
         return Response(serializer.validated_data, status.HTTP_201_CREATED)
 
+    def list(self, request):
+        serializer = SymbolSerializer(Symbols.objects.all(), many=True)
+
+        return Response(serializer.data, status.HTTP_200_OK)
+
+    def retrieve(self, request, id):
+        serializer = SymbolSerializer(Symbols.objects.get(pk=id))
+
+        return Response(serializer.data, status.HTTP_200_OK)
+
+    def update(self, request, id):
+        serializer = SymbolSerializer(instance=get_object_or_404(Symbols, pk=id), data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.validated_data, status.HTTP_200_OK)
+
+    def destroy(self, request, id):
+        get_object_or_404(Symbols, pk=id).delete()
+
+        return Response("Symbol is deleted", status.HTTP_200_OK)
