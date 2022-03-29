@@ -67,7 +67,7 @@ class TestViews(TestCase):
         symbol1 = Symbols.objects.create(
             symbol="TEST"
         )
-        for i in range(10):
+        for i in range(5):
             Article.objects.create(
                  title='2022 Oscars preview: The awards show is back but it wont be a traditional Oscars',
                  description='Heres what to expect at this years Academy Awards.',
@@ -78,7 +78,7 @@ class TestViews(TestCase):
                  updated_at='2022-03-26 18:16:03.479667 +00:00',
                  symbol_id=symbol1.id
               )
-        for i in range(10):
+        for i in range(5):
             Article.objects.create(
                  title='2021 Oscars',
                  description='Heres what to expect at this years Academy Awards.',
@@ -98,7 +98,7 @@ class TestViews(TestCase):
         response_second_page_title = response_second_page_title.json()['results'][0]['title']
         response_first_page_title = response.json()['results'][0]['title']
 
-        self.assertEquals(len(response.json()['results']), 10)
+        self.assertEquals(len(response.json()['results']), 5)
         self.assertEquals(len(response_with_page_size_param.json()['results']), 1)
         self.assertNotEquals(response_first_page_title, response_second_page_title)
 

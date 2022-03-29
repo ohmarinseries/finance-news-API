@@ -25,4 +25,4 @@ WORKDIR /djangoProject
 
 EXPOSE 8080
 
-CMD python manage.py makemigrations && python manage.py migrate --run-syncdb && python manage.py runserver 0.0.0.0:8080
+CMD python manage.py test financeAPI &&python manage.py makemigrations && python manage.py migrate --run-syncdb && python manage.py runserver 0.0.0.0:8080
