@@ -1,17 +1,22 @@
 # Finance News API / Scrapper Service
 
 ## Setup
+First thing to do is open your terminal
 
-The first thing to do is to clone the repository(using SSH):
+Then navigate to directory where you want the project to be cloned
+
+Then clone the repository(using SSH):
 
 ```shell
 $ git clone git@github.com:ohmarinseries/finance-news-API.git
 ```
-#### Then navigate to cloned project
+Then navigate to cloned project:
+```shell
+cd finance-news-API
+```
 
 # Build
 To start application locally you need to run following command:
-
 ####Required: You need to have docker desktop on your machine to run.
 
 ```shell
@@ -19,10 +24,12 @@ $ docker-compose up --build
 ```
 ####Note: Also build will take some time
 
+If build was successful, inside your docker desktop app you will see 5 running containers. 
+
 # Use
 Finance News API is an REST API for collecting news articles from Yahoo RSS Feed.
 Scrapping Service is collecting data for AAPL, TWTR, INTC, GC=F (by default), but
-can add additional symbols by sending request:
+you can add additional symbols.
 To see symbols that data is being collected for send request to:
 
 ```http request
@@ -64,7 +71,7 @@ GET http://localhost:8080/swagger/
 
 #Run Tests
 To run tests for application run the following command:
-####Important: If you already executed docker-compose up --build, app has been tested once!
+####Important: If you already executed docker-compose up --build, app has been tested during build!
 ```shell
 python3 manage.py test financeAPI
 ```
