@@ -7,11 +7,7 @@ The first thing to do is to clone the repository(using SSH):
 ```shell
 $ git clone git@github.com:ohmarinseries/finance-news-API.git
 ```
-Then navigate to project:
-
-```shell
-$ cd finance-news-API
-```
+Then navigate to project
 
 # Build
 
@@ -22,7 +18,7 @@ To start application you need to run following command:
 ```shell
 $ docker-compose up --build
 ```
-Note: Also build will take a bit of time
+####Note: Also build will take some time
 
 # Use
 Finance News API is an REST API for collecting news articles from Yahoo RSS Feed.
@@ -33,7 +29,7 @@ can add additional symbols by sending request:
 POST http://localhost:8080/news/symbols/
 BODY:
 {
-'symbol': 'example-symbol'
+'symbol': ''
 }
 ```
 
@@ -51,10 +47,16 @@ To see all scrapped articles send request to:
 GET http://localhost:8080/news/articles/
 ```
 
+To see scrapped articles from specific symbol add query parameter to previous request:
+
+```http request
+GET  http://localhost:8080/news/articles/?symbol=TWTR
+```
+
 Use query parameters page_size and page to navigate through pagination, example:
 
 ```http request
-GET http://localhost:8080/news/articles/?page_size=5&page=3
+GET http://localhost:8080/news/articles/?page_size=5&page=3&symbol=AAPL
 ```
 
 #To open full documentation:
