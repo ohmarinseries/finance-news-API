@@ -64,6 +64,7 @@ GET http://localhost:8080/swagger/
 
 #Run Tests
 To run tests for application run the following command:
+####Important: If you already executed docker-compose up --build, app has been tested once!
 ```shell
 python3 manage.py test financeAPI
 ```
