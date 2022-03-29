@@ -8,7 +8,7 @@ Then navigate to directory where you want the project to be cloned
 Then clone the repository(using SSH):
 
 ```shell
-$ git clone git@github.com:ohmarinseries/finance-news-API.git
+git clone git@github.com:ohmarinseries/finance-news-API.git
 ```
 Then navigate to cloned project:
 ```shell
@@ -16,18 +16,19 @@ cd finance-news-API
 ```
 
 # Build
-To start application locally you need to run following command:
-####Required: You need to have docker desktop on your machine to run.
+To deploy application locally you need to run following command:
+
+####Required: You need to have docker desktop installed on your machine to deploy. Also docker desktop needs to be opened.
 
 ```shell
-$ docker-compose up --build
+docker-compose up
 ```
 ####Note: Also build will take some time
 
 If build was successful, inside your docker desktop app you will see 5 running containers. 
 
 # Use
-Finance News API is an REST API for collecting news articles from Yahoo RSS Feed.
+Finance News API is a Django based REST API for fetching scrapped news from Yahoo RSS Feed.
 Scrapping Service is collecting data for AAPL, TWTR, INTC, GC=F (by default), but
 you can add additional symbols.
 To see symbols that data is being collected for send request to:
@@ -35,18 +36,18 @@ To see symbols that data is being collected for send request to:
 ```http request
 GET http://localhost:8080/news/symbols/
 ```
-To create additional symbols for collection:
+To add symbols for collection(example for Bitcoin news):
 ```http request
 POST http://localhost:8080/news/symbols/
 BODY:
 {
-'symbol': 'EXAMPLE'
+'symbol': 'BTC'
 }
 ```
 
 Celery is scrapping data every minute from Yahoo RSS Feed
 
-To see all scrapped articles send request to:
+To see all scrapped articles(all symbols) send request to:
 
 ```http request
 GET http://localhost:8080/news/articles/
