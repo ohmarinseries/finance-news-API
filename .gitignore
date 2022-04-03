@@ -1,4 +1,4 @@
 .idea
 ./api
 ./djangoProject/.env
-./financeAPI/tests/__pycache__
+./financeAPI/__pycache__
