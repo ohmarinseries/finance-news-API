@@ -50,11 +50,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="finance-news-API" type="Python.DjangoServer" factoryName="Django server">
@@ -121,7 +127,7 @@
       <workItem from="1648389802352" duration="44089000" />
       <workItem from="1648509330200" duration="14000" />
       <workItem from="1648544326527" duration="19104000" />
-      <workItem from="1648928449629" duration="8834000" />
+      <workItem from="1648928449629" duration="9790000" />
     </task>
     <servers />
   </component>
